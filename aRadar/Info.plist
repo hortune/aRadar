@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>This application will use the camera for AR.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This application will use the location for AR.</string>
 </dict>
 </plist>
