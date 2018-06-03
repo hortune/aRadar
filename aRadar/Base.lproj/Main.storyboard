@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="aRadar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home" id="BYZ-38-t0r" customClass="ViewController" customModule="aRadar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--AR-->
         <scene sceneID="9vp-vj-FN8">
             <objects>
-                <viewController id="I6p-wo-8ra" customClass="ARViewController" customModule="aRadar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="AR" id="I6p-wo-8ra" customClass="ARViewController" customModule="aRadar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mB5-8A-wa3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,6 +74,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="aTO-PB-02g" id="YzB-mu-4Vy"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToOrigin" id="DM5-43-Rf4"/>
+                        <segue destination="QLF-re-d40" kind="show" id="JWP-WD-sSw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3VS-Lu-SFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -88,5 +89,26 @@
             </objects>
             <point key="canvasLocation" x="1241" y="134"/>
         </scene>
+        <!--Detail-->
+        <scene sceneID="feh-b9-F1K">
+            <objects>
+                <viewController title="Detail" id="QLF-re-d40" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="05m-iI-jG3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="DXz-d4-af0"/>
+                    </view>
+                    <connections>
+                        <segue destination="I6p-wo-8ra" kind="show" id="Ops-ax-bVn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CEX-sF-KkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2228" y="138"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ops-ax-bVn"/>
+    </inferredMetricsTieBreakers>
 </document>
