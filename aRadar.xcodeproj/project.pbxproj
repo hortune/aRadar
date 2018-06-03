@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		510F797920C377F400CD7B61 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510F797820C377F400CD7B61 /* ARViewController.swift */; };
+		517840BB20C37AA30039399A /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 517840BA20C37AA30039399A /* pin.png */; };
+		517840BD20C398D20039399A /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 517840BC20C398D10039399A /* close.png */; };
 		51EC6A3D20C29F53008D0A08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC6A3C20C29F53008D0A08 /* AppDelegate.swift */; };
 		51EC6A3F20C29F53008D0A08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC6A3E20C29F53008D0A08 /* ViewController.swift */; };
 		51EC6A4220C29F53008D0A08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51EC6A4020C29F53008D0A08 /* Main.storyboard */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		510F797820C377F400CD7B61 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		517840BA20C37AA30039399A /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		517840BC20C398D10039399A /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		51EC6A3920C29F53008D0A08 /* aRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EC6A3C20C29F53008D0A08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51EC6A3E20C29F53008D0A08 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,12 +67,15 @@
 		51EC6A3B20C29F53008D0A08 /* aRadar */ = {
 			isa = PBXGroup;
 			children = (
+				517840BC20C398D10039399A /* close.png */,
+				517840BA20C37AA30039399A /* pin.png */,
 				51EC6A3C20C29F53008D0A08 /* AppDelegate.swift */,
 				51EC6A3E20C29F53008D0A08 /* ViewController.swift */,
 				51EC6A4020C29F53008D0A08 /* Main.storyboard */,
 				51EC6A4320C29F55008D0A08 /* Assets.xcassets */,
 				51EC6A4520C29F55008D0A08 /* LaunchScreen.storyboard */,
 				51EC6A4820C29F55008D0A08 /* Info.plist */,
+				510F797820C377F400CD7B61 /* ARViewController.swift */,
 			);
 			path = aRadar;
 			sourceTree = "<group>";
@@ -149,7 +158,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				51EC6A4720C29F55008D0A08 /* LaunchScreen.storyboard in Resources */,
+				517840BB20C37AA30039399A /* pin.png in Resources */,
 				51EC6A4420C29F55008D0A08 /* Assets.xcassets in Resources */,
+				517840BD20C398D20039399A /* close.png in Resources */,
 				51EC6A4220C29F53008D0A08 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				510F797920C377F400CD7B61 /* ARViewController.swift in Sources */,
 				51EC6A3F20C29F53008D0A08 /* ViewController.swift in Sources */,
 				51EC6A3D20C29F53008D0A08 /* AppDelegate.swift in Sources */,
 			);
