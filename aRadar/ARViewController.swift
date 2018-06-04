@@ -70,6 +70,8 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
                                 }
                             }
                     }
+                } else{
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
         }
