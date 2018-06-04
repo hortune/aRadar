@@ -13,8 +13,8 @@ import SceneKit
 import FirebaseFirestore
 
 struct spot {
-    var latitude: Float?
-    var longtitude: Float?
+    var latitude: Double?
+    var longitude: Double?
     var name = String()
     var desc = String()
     var image = String()
@@ -35,19 +35,17 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("roomCode",roomCode)
         
-//        for firebase
-        syncData()
         let tapRecognizer = UITapGestureRecognizer(target: self,
                                                    action: #selector(self.tap(_:)))
         self.view.addGestureRecognizer(tapRecognizer)
         
+        syncData()
         sceneLocationView.locationDelegate = self
         sceneLocationView.run()
         view.addSubview(sceneLocationView)
         loadButton()
-        loadSpots()
+//        loadSpots()
     }
     
     func syncData(){
@@ -66,10 +64,20 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
                                 print("Hello")
                                 print("querySnapshot",querySnapshot!.documents)
                                 for document in querySnapshot!.documents {
-                                    print("\(document.documentID) => \(document.data())")
+//                                    print("\(document.documentID) => \(document.data())")
+                                    let data = document.data()
+                                    let pos = data["Position"] as! GeoPoint
+                                    self.spots.append(
+                                        spot(latitude: pos.latitude,
+                                             longitude: pos.longitude,
+                                             name: data["Title"] as! String,
+                                             desc: data["Description"] as! String,
+                                             image: data["Graph"] as! String)
+                                    )
                                 }
                             }
                     }
+                    self.loadSpots()
                 } else{
                     self.dismiss(animated: true, completion: nil)
                 }
@@ -79,19 +87,30 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
     func loadSpots(){
         spots.append(
             spot(latitude: 25.021918,
-                 longtitude: 121.535285,
+                 longitude: 121.535285,
                  name: "台大新體",
                  desc: "台大知識王產地，康正男的財產台灣大學，yoyo，這是民主的聖地，屌到爆的地方，你知道嗎，這地方辦過ｌｏｌ世界賽。",
                  image: "http://google.com")
         )
+        for index in 0...(spots.count-1){
+            let spotNode = spots[index]
+            let coordinate = CLLocationCoordinate2D(latitude: spotNode.latitude!, longitude: spotNode.longitude!)
+            let location = CLLocation(coordinate: coordinate, altitude: 300)
+            let image = UIImage(named: "pin")!
+            let nimage = textToImage(drawText: spotNode.name , inImage: image, atPoint: CGPoint(x:40, y:40))
+            let annotationNode = LocationAnnotationNode(location: location, image: nimage)
+            annotationNode.annotationNode.name = "\(index)"
+            sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
+        }
         
-        let coordinate = CLLocationCoordinate2D(latitude: 25.021918, longitude: 121.535285)
-        let location = CLLocation(coordinate: coordinate, altitude: 300)
-        let image = UIImage(named: "pin")!
-        let nimage = textToImage(drawText: "台大新體", inImage: image, atPoint: CGPoint(x:40, y:40))
-        let annotationNode = LocationAnnotationNode(location: location, image: nimage)
-        annotationNode.annotationNode.name = "0"
-        sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
+        
+//        let coordinate = CLLocationCoordinate2D(latitude: 25.021918, longitude: 121.535285)
+//        let location = CLLocation(coordinate: coordinate, altitude: 300)
+//        let image = UIImage(named: "pin")!
+//        let nimage = textToImage(drawText: "台大新體", inImage: image, atPoint: CGPoint(x:40, y:40))
+//        let annotationNode = LocationAnnotationNode(location: location, image: nimage)
+//        annotationNode.annotationNode.name = "0"
+//        sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
 
 
 //        let planeGeometry = SCNPlane(width: 400, height: 400)
