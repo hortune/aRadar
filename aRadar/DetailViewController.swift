@@ -10,9 +10,14 @@ import UIKit
 
 class DetailViewController: UIViewController {
     let button = UIButton(frame: CGRect(x: 10, y: 20, width: 20, height: 20))
+    var data = spot()
     
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var locationName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationName.text = data.name
+        textView.text = data.desc
         if let image = UIImage(named: "close.png") {
             button.setImage(image, for:[])
         }

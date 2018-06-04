@@ -10,13 +10,91 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aRadar/ARViewController.swift"
-            timestampString = "549736823.273275"
+            timestampString = "549774329.5396841"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
             landmarkName = "sceneLocationViewDidUpdateLocationAndScaleOfLocationNode(sceneLocationView:locationNode:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aRadar/DetailViewController.swift"
+            timestampString = "549774329.56432"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "DetailViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "variable initialization expression of aRadar.DetailViewController.button : __ObjC.UIButton"
+                  moduleName = "aRadar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hortune/Documents/aRadar/aRadar/DetailViewController.swift"
+                  timestampString = "549774155.06717"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aRadar.DetailViewController.button.getter : __ObjC.UIButton"
+                  moduleName = "aRadar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hortune/Documents/aRadar/aRadar/DetailViewController.swift"
+                  timestampString = "549774155.070219"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aRadar.DetailViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; aRadar.DetailViewController"
+                  moduleName = "aRadar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hortune/Documents/aRadar/aRadar/DetailViewController.swift"
+                  timestampString = "549774155.073361"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aRadar.DetailViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;aRadar.DetailViewController&gt;"
+                  moduleName = "aRadar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hortune/Documents/aRadar/aRadar/DetailViewController.swift"
+                  timestampString = "549774155.076906"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -12,8 +12,8 @@ import CoreLocation
 import SceneKit
 
 struct spot {
-    var latitude: Float
-    var longtitude: Float
+    var latitude: Float?
+    var longtitude: Float?
     var name = String()
     var desc = String()
     var image = String()
@@ -24,6 +24,7 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
     let button1 = UIButton(frame: CGRect(x: 30, y: 20, width: 20, height: 20))
     var spots = [spot]()
     var sceneLocationView = SceneLocationView()
+    var lastIndex: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
             spot(latitude: 25.021918,
                  longtitude: 121.535285,
                  name: "台大新體",
-                 desc: "gan",
+                 desc: "台大知識王產地，康正男的財產台灣大學，yoyo，這是民主的聖地，屌到爆的地方，你知道嗎，這地方辦過ｌｏｌ世界賽。",
                  image: "http://google.com")
         )
         
@@ -52,7 +53,7 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
         let image = UIImage(named: "pin")!
         let nimage = textToImage(drawText: "台大新體", inImage: image, atPoint: CGPoint(x:40, y:40))
         let annotationNode = LocationAnnotationNode(location: location, image: nimage)
-        annotationNode.annotationNode.name = "HAHA 87"
+        annotationNode.annotationNode.name = "0"
         sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
 
 
@@ -73,6 +74,7 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
 //        clickableElement.backgroundColor = UIColor.red
 //
 //        let planeNode = SCNNode(geometry: planeGeometry)
+//        planeNode.geometry?.secondMaterial
 //        planeNode.geometry?.firstMaterial = material
 //        planeNode.opacity = 1
 //        planeNode.eulerAngles.x = -.pi / 2
@@ -114,15 +116,17 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
         sceneLocationView.frame = view.bounds
     }
 
-    /*
-    // MARK: - Navigation
+     //MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+     //In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "go" {
+            let detailViewController: DetailViewController = segue.destination as! DetailViewController
+            detailViewController.data = spots[lastIndex]
+            
+        }
     }
-    */
+    
     func textToImage(drawText text: String, inImage image: UIImage, atPoint point: CGPoint) -> UIImage {
         let textColor = UIColor.white
         let textFont = UIFont(name: "Helvetica Bold", size: 12)!
@@ -181,7 +185,9 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
 //        print("948794879487")
         if let lastNode = sceneHitTestResult.last?.node {
             print("948794879487")
-            print(lastNode.name)
+            lastIndex = Int(lastNode.name!)!
+//            print(lastIndex)
+            self.performSegue(withIdentifier: "go", sender: self)
         }
     }
 }
