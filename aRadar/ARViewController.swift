@@ -50,34 +50,39 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
     
     func syncData(){
         db = Firestore.firestore()
+        let qq = self
         db?.collection("Event").document(roomCode).getDocument{ (document, error) in
             if let error = error{
                 print("Error getting documents: \(error)")
             }
             else{
+                let prev = qq
                 if let eventName = document?.data()?["Category"]{
                     self.db?.collection("Spot").whereField("Category", isEqualTo: eventName)
                         .getDocuments() { (querySnapshot, err) in
                             if let err = err {
                                 print("Error getting documents: \(err)")
                             } else {
+                                print("eventName",eventName)
                                 print("Hello")
                                 print("querySnapshot",querySnapshot!.documents)
                                 for document in querySnapshot!.documents {
 //                                    print("\(document.documentID) => \(document.data())")
                                     let data = document.data()
-                                    let pos = data["Position"] as! GeoPoint
-                                    self.spots.append(
-                                        spot(latitude: pos.latitude,
-                                             longitude: pos.longitude,
-                                             name: data["Title"] as! String,
-                                             desc: data["Description"] as! String,
-                                             image: data["Graph"] as! String)
-                                    )
+                                    if data["SubCategory"] as! String != "Virtual" && data["SubCategory"] as! String != "Misc"{
+                                        let pos = data["Position"] as! GeoPoint
+                                        prev.spots.append(
+                                            spot(latitude: pos.latitude,
+                                                 longitude: pos.longitude,
+                                                 name: data["Title"] as! String,
+                                                 desc: data["Description"] as! String,
+                                                 image: data["Graph"] as! String)
+                                        )
+                                    }
                                 }
+                                prev.loadSpots()
                             }
                     }
-                    self.loadSpots()
                 } else{
                     self.dismiss(animated: true, completion: nil)
                 }
@@ -85,62 +90,24 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
         }
     }
     func loadSpots(){
-        spots.append(
-            spot(latitude: 25.021918,
-                 longitude: 121.535285,
-                 name: "台大新體",
-                 desc: "台大知識王產地，康正男的財產台灣大學，yoyo，這是民主的聖地，屌到爆的地方，你知道嗎，這地方辦過ｌｏｌ世界賽。",
-                 image: "http://google.com")
-        )
+//        spots.append(
+//            spot(latitude: 25.021918,
+//                 longitude: 121.535285,
+//                 name: "台大新體",
+//                 desc: "台大知識王產地，康正男的財產台灣大學，yoyo，這是民主的聖地，屌到爆的地方，你知道嗎，這地方辦過ｌｏｌ世界賽。",
+//                 image: "http://google.com")
+//        )
+        print("spots count",spots.count)
         for index in 0...(spots.count-1){
             let spotNode = spots[index]
             let coordinate = CLLocationCoordinate2D(latitude: spotNode.latitude!, longitude: spotNode.longitude!)
-            let location = CLLocation(coordinate: coordinate, altitude: 300)
+            let location = CLLocation(coordinate: coordinate, altitude: 10)
             let image = UIImage(named: "pin")!
             let nimage = textToImage(drawText: spotNode.name , inImage: image, atPoint: CGPoint(x:40, y:40))
             let annotationNode = LocationAnnotationNode(location: location, image: nimage)
             annotationNode.annotationNode.name = "\(index)"
             sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
         }
-        
-        
-//        let coordinate = CLLocationCoordinate2D(latitude: 25.021918, longitude: 121.535285)
-//        let location = CLLocation(coordinate: coordinate, altitude: 300)
-//        let image = UIImage(named: "pin")!
-//        let nimage = textToImage(drawText: "台大新體", inImage: image, atPoint: CGPoint(x:40, y:40))
-//        let annotationNode = LocationAnnotationNode(location: location, image: nimage)
-//        annotationNode.annotationNode.name = "0"
-//        sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
-
-
-//        let planeGeometry = SCNPlane(width: 400, height: 400)
-//        let material = SCNMaterial()
-//        DispatchQueue.main.async {
-//            let clickableElement = ClickableView(frame: CGRect(x: 0, y: 0,
-//                                                               width: 3000,
-//                                                               height: 3000))
-//            clickableElement.tag = 1
-//            material.diffuse.contents = clickableElement
-//        }
-//        let clickableElement = ClickableView(frame: CGRect(x: 0, y: 0,
-//                                                           width: 3000,
-//                                                           height: 3000))
-//        clickableElement.tag = 1
-//        material.diffuse.contents = clickableElement
-//        clickableElement.backgroundColor = UIColor.red
-//
-//        let planeNode = SCNNode(geometry: planeGeometry)
-//        planeNode.geometry?.secondMaterial
-//        planeNode.geometry?.firstMaterial = material
-//        planeNode.opacity = 1
-//        planeNode.eulerAngles.x = -.pi / 2
-////        annotationNode.addChildNode(planeNode)
-//        planeNode.position = SCNVector3(0,0,-1)
-//        planeNode.scale = SCNVector3(10000,10000,10000)
-//        annotationNode.childNodes[0].addChildNode(planeNode)
-//        sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
-//        print("annotationNode",annotationNode.childNodes[0])
-    
     }
     
     func loadButton(){
@@ -237,7 +204,6 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
         let sceneHitTestResult = sceneLocationView.hitTest(location, options: nil)
 //        print("948794879487")
         if let lastNode = sceneHitTestResult.last?.node {
-            print("948794879487")
             lastIndex = Int(lastNode.name!)!
 //            print(lastIndex)
             self.performSegue(withIdentifier: "go", sender: self)
