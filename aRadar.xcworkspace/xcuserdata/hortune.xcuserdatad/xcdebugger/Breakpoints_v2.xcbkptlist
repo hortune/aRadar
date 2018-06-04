@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aRadar/ARViewController.swift"
-            timestampString = "549774329.5396841"
+            timestampString = "549774872.533308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "sceneLocationViewDidUpdateLocationAndScaleOfLocationNode(sceneLocationView:locationNode:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aRadar/DetailViewController.swift"
-            timestampString = "549774329.56432"
+            timestampString = "549774872.535628"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "12"

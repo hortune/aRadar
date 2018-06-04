@@ -21,13 +21,14 @@ struct spot {
 
 class ARViewController: UIViewController, SceneLocationViewDelegate {
     let button = UIButton(frame: CGRect(x: 10, y: 20, width: 20, height: 20))
-    let button1 = UIButton(frame: CGRect(x: 30, y: 20, width: 20, height: 20))
     var spots = [spot]()
     var sceneLocationView = SceneLocationView()
     var lastIndex: Int = 1
+    var roomCode = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("roomCode",roomCode)
         let tapRecognizer = UITapGestureRecognizer(target: self,
                                                    action: #selector(self.tap(_:)))
         self.view.addGestureRecognizer(tapRecognizer)
@@ -90,12 +91,9 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
     func loadButton(){
         if let image = UIImage(named: "close.png") {
             button.setImage(image, for:[])
-            button1.setImage(image, for:[])
         }
         button.addTarget(self,action: #selector(self.dismiss(_:)), for: UIControlEvents.touchDown)
-        button1.addTarget(self,action: #selector(self.garbage1(_:)), for: UIControlEvents.touchDown)
         view.addSubview(button)
-        view.addSubview(button1)
     }
 
     @objc func dismiss(_ sender: UIButton){ //<- needs `@objc`
