@@ -7,4 +7,6 @@ target 'aRadar' do
 
   # Pods for aRadar
   pod 'ARCL'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
 end

@@ -10,6 +10,7 @@ import UIKit
 import ARCL
 import CoreLocation
 import SceneKit
+import FirebaseFirestore
 
 struct spot {
     var latitude: Float?
@@ -24,11 +25,20 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
     var spots = [spot]()
     var sceneLocationView = SceneLocationView()
     var lastIndex: Int = 1
-    var roomCode = String()
+    var roomCode:String = "d2a1"
+    
+//    for fire base
+    var db: Firestore?
+    var docRef: DocumentReference? = nil
+    
+    var data = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("roomCode",roomCode)
+        
+//        for firebase
+        syncData()
         let tapRecognizer = UITapGestureRecognizer(target: self,
                                                    action: #selector(self.tap(_:)))
         self.view.addGestureRecognizer(tapRecognizer)
@@ -40,6 +50,30 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
         loadSpots()
     }
     
+    func syncData(){
+        db = Firestore.firestore()
+        db?.collection("Event").document(roomCode).getDocument{ (document, error) in
+            if let error = error{
+                print("Error getting documents: \(error)")
+            }
+            else{
+                if let eventName = document?.data()?["Category"]{
+                    self.db?.collection("Spot").whereField("Category", isEqualTo: eventName)
+                        .getDocuments() { (querySnapshot, err) in
+                            if let err = err {
+                                print("Error getting documents: \(err)")
+                            } else {
+                                print("Hello")
+                                print("querySnapshot",querySnapshot!.documents)
+                                for document in querySnapshot!.documents {
+                                    print("\(document.documentID) => \(document.data())")
+                                }
+                            }
+                    }
+                }
+            }
+        }
+    }
     func loadSpots(){
         spots.append(
             spot(latitude: 25.021918,

@@ -11,6 +11,7 @@
 		517840BB20C37AA30039399A /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 517840BA20C37AA30039399A /* pin.png */; };
 		517840BD20C398D20039399A /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 517840BC20C398D10039399A /* close.png */; };
 		517840BF20C3C4380039399A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517840BE20C3C4380039399A /* DetailViewController.swift */; };
+		518B344720C50E320003E00F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 518B344620C50E310003E00F /* GoogleService-Info.plist */; };
 		51EC6A3D20C29F53008D0A08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC6A3C20C29F53008D0A08 /* AppDelegate.swift */; };
 		51EC6A3F20C29F53008D0A08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51EC6A3E20C29F53008D0A08 /* ViewController.swift */; };
 		51EC6A4220C29F53008D0A08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51EC6A4020C29F53008D0A08 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		517840BA20C37AA30039399A /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		517840BC20C398D10039399A /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		517840BE20C3C4380039399A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		518B344620C50E310003E00F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		51EC6A3920C29F53008D0A08 /* aRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51EC6A3C20C29F53008D0A08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51EC6A3E20C29F53008D0A08 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		51EC6A3B20C29F53008D0A08 /* aRadar */ = {
 			isa = PBXGroup;
 			children = (
+				518B344620C50E310003E00F /* GoogleService-Info.plist */,
 				517840BC20C398D10039399A /* close.png */,
 				517840BA20C37AA30039399A /* pin.png */,
 				51EC6A3C20C29F53008D0A08 /* AppDelegate.swift */,
@@ -165,6 +168,7 @@
 				51EC6A4420C29F55008D0A08 /* Assets.xcassets in Resources */,
 				517840BD20C398D20039399A /* close.png in Resources */,
 				51EC6A4220C29F53008D0A08 /* Main.storyboard in Resources */,
+				518B344720C50E320003E00F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,10 +201,28 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-aRadar/Pods-aRadar-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARCL.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
