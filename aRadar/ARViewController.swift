@@ -67,7 +67,7 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
                                 print("Hello")
                                 print("querySnapshot",querySnapshot!.documents)
                                 for document in querySnapshot!.documents {
-//                                    print("\(document.documentID) => \(document.data())")
+                                    print("\(document.documentID) => \(document.data())")
                                     let data = document.data()
                                     if data["SubCategory"] as! String != "Virtual" && data["SubCategory"] as! String != "Misc"{
                                         let pos = data["Position"] as! GeoPoint
@@ -101,7 +101,7 @@ class ARViewController: UIViewController, SceneLocationViewDelegate {
         for index in 0...(spots.count-1){
             let spotNode = spots[index]
             let coordinate = CLLocationCoordinate2D(latitude: spotNode.latitude!, longitude: spotNode.longitude!)
-            let location = CLLocation(coordinate: coordinate, altitude: 10)
+            let location = CLLocation(coordinate: coordinate, altitude: 25)
             let image = UIImage(named: "pin")!
             let nimage = textToImage(drawText: spotNode.name , inImage: image, atPoint: CGPoint(x:40, y:40))
             let annotationNode = LocationAnnotationNode(location: location, image: nimage)
