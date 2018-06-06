@@ -235,7 +235,4 @@ class ClickableView: UIButton{
         print("Object With Tag \(tag)")
         
     }
-    
-   
-    
 }
